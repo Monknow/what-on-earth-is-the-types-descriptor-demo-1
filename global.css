@@ -1,0 +1,172 @@
+@view-transition {
+	navigation: auto;
+}
+
+main {
+	view-transition-name: page;
+}
+
+::view-transition-old(page) {
+	animation: fade-out 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+::view-transition-new(page) {
+	animation: fade-in 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+@keyframes fade-out {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(calc(120px * var(--direction, 1)));
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translateX(calc(-120px * var(--direction, 1)));
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+/* Aesthetic Styles */
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("montserrat-variable.ttf") format("truetype");
+	font-style: normal;
+}
+
+:root {
+	--background-color: #f3f3e9;
+	--rem: clamp(10px, min(1.5vw, 2vh), 18px);
+
+	--outer-spacing: 4rem;
+	--inner-spacing: 2rem;
+	--text-spacing: 1rem;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: "Montserrat", sans-serif;
+
+	font-size: var(--rem);
+	color: var(--text-color);
+}
+
+body {
+	display: flex;
+	flex-flow: column;
+	gap: var(--outer-spacing);
+	padding: var(--outer-spacing);
+
+	max-width: 1200px;
+	min-height: 100vh;
+	margin: 0 auto;
+
+	background-color: var(--background-color);
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+
+	a {
+		display: flex;
+		gap: 5px;
+
+		font-size: 1.5rem;
+		font-weight: 600;
+
+		color: var(--text-color);
+	}
+
+	.inactive {
+		text-decoration: none;
+		pointer-events: none;
+		opacity: 0.4;
+	}
+
+	svg {
+		height: 2rem;
+		fill: var(--text-color);
+	}
+}
+
+main {
+	flex: 1 1;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 200px 1fr;
+	grid-template-areas:
+		"title banner"
+		"list banner";
+	align-items: stretch;
+	gap: var(--outer-spacing);
+
+	.banner {
+		grid-area: banner;
+
+		display: flex;
+		flex-flow: column;
+		align-items: flex-end;
+		gap: var(--text-spacing);
+
+		img {
+			width: 100%;
+			height: 100%;
+
+			object-fit: cover;
+
+			border-radius: 10px;
+		}
+
+		a {
+			color: var(--text-color);
+		}
+	}
+
+	ul {
+		grid-area: list;
+		line-height: 2.2rem;
+		list-style: apple-counter inside;
+		font-size: 1.4rem;
+
+		li::marker {
+			content: var(--marker) " ";
+
+			font-size: 65%;
+		}
+	}
+
+	.intro {
+		font-weight: 300;
+		font-size: 2.5rem;
+	}
+
+	h1 {
+		grid-area: title;
+
+		font-size: 5rem;
+	}
+}
+
+@media screen and (width < 700px) {
+	main {
+		display: flex;
+		flex-flow: column;
+	}
+}
