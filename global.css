@@ -46,7 +46,7 @@ main {
 
 :root {
 	--background-color: #f3f3e9;
-	--rem: clamp(10px, min(1.5vw, 2vh), 18px);
+	--rem: clamp(10px, min(1vw, 2vh), 18px);
 
 	--outer-spacing: 4rem;
 	--inner-spacing: 2rem;
@@ -110,7 +110,7 @@ main {
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 200px 1fr;
+	grid-template-rows: min-content 1fr;
 	grid-template-areas:
 		"title banner"
 		"list banner";
@@ -132,10 +132,6 @@ main {
 			object-fit: cover;
 
 			border-radius: 10px;
-		}
-
-		a {
-			color: var(--text-color);
 		}
 	}
 
@@ -162,6 +158,14 @@ main {
 
 		font-size: 5rem;
 	}
+}
+
+footer {
+	font-size: 1.2rem;
+}
+
+a {
+	color: var(--text-color);
 }
 
 @media screen and (width < 700px) {
