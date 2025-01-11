@@ -21,14 +21,14 @@ main {
 
 	100% {
 		opacity: 0;
-		transform: translateX(calc(120px * var(--direction, 1)));
+		transform: translateX(calc(50% * var(--direction, 1)));
 	}
 }
 
 @keyframes fade-in {
 	0% {
 		opacity: 0;
-		transform: translateX(calc(-120px * var(--direction, 1)));
+		transform: translateX(calc(-50% * var(--direction, 1)));
 	}
 
 	100% {

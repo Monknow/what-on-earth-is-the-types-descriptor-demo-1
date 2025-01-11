@@ -53,11 +53,11 @@ nav {
 		color: var(--text-color);
 	}
 
-	/* .inactive {
+	.inactive {
 		text-decoration: none;
 		pointer-events: none;
 		opacity: 0.4;
-	} */
+	}
 
 	svg {
 		height: 2rem;
