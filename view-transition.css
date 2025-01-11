@@ -1,0 +1,37 @@
+@view-transition {
+	navigation: auto;
+}
+
+main {
+	view-transition-name: page;
+}
+
+::view-transition-old(page) {
+	animation: fade-out 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+::view-transition-new(page) {
+	animation: fade-in 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+@keyframes fade-out {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(calc(120px * var(--direction, 1)));
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translateX(calc(-120px * var(--direction, 1)));
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
