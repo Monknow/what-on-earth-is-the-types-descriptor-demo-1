@@ -1,20 +1,17 @@
 @view-transition {
 	navigation: auto;
-	types: forwards backwards;
 }
 
 main {
 	view-transition-name: page;
 }
 
-html:active-view-transition-type(forwards) {
-	&::view-transition-old(page) {
-		animation: slide-out 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
-	}
+::view-transition-old(page) {
+	animation: slide-out 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
 
-	&::view-transition-new(page) {
-		animation: slide-in 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
-	}
+::view-transition-new(page) {
+	animation: slide-in 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
 }
 
 @keyframes slide-out {
