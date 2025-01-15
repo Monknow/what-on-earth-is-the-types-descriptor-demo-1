@@ -1,3 +1,3 @@
-# CSS-Tricks - Almanac - `@view-transition`
+# CSS-Tricks - What on earth is the `types` descriptor?
 
-Demo to showcase hwo to use the `@view-transition` at-rule and view transition in General
+Demo to showcase how to use the `types` descriptor in `@view-transition`
