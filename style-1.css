@@ -1,3 +1,8 @@
+@view-transition {
+	navigation: auto;
+	types: bounce;
+}
+
 :root {
 	--direction: 1;
 	--marker: "🍎";

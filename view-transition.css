@@ -1,17 +1,25 @@
-@view-transition {
-	navigation: auto;
-}
-
 main {
 	view-transition-name: page;
 }
 
-::view-transition-old(page) {
-	animation: slide-out 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+html:active-view-transition-type(bounce) {
+	&::view-transition-old(page) {
+		animation: bounce-out 1s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+	}
+
+	&::view-transition-new(page) {
+		animation: bounce-in 1s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+	}
 }
 
-::view-transition-new(page) {
-	animation: slide-in 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+html:active-view-transition-type(slide) {
+	&::view-transition-old(page) {
+		animation: slide-out 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+	}
+
+	&::view-transition-new(page) {
+		animation: slide-in 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+	}
 }
 
 @keyframes slide-out {
@@ -33,5 +41,22 @@ main {
 
 	100% {
 		transform: translateX(0%);
+	}
+}
+
+@keyframes bounce-out {
+	100% {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+}
+
+@keyframes bounce-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	100% {
+		transform: scale(1);
 	}
 }
